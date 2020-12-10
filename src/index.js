@@ -8,8 +8,9 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import ErrorBoundary from './pages/ErrorBoundary';
+import ErrorBoundary from './components/ErrorBoundary';
 import Refs from './pages/Refs'
+import Frag from './pages/Fragments';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,8 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route path="/refs" component={Refs} />
+          <Route path="/fragments" component={Frag} />
+          {/* / 必须在最后 */}
           <Route path="/" component={App} />
         </Switch>
       </Router>
