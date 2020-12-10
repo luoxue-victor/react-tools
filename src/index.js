@@ -9,17 +9,19 @@ import {
   Route,
 } from "react-router-dom";
 import ErrorBoundary from './components/ErrorBoundary';
-import Refs from './pages/Refs'
-import Frag from './pages/Fragments';
+
+const context = require.context('./pages', true, /\.js$/);
 
 ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
       <Router>
         <Switch>
-          <Route path="/refs" component={Refs} />
-          <Route path="/fragments" component={Frag} />
-          {/* / 必须在最后 */}
+          {context.keys().map(path => {
+            const name = path.replace('./', '').replace('.js', '');
+            return <Route key={path} path={`/${name}`} component={require(`./pages/${name}.js`).default} />
+          })}
+          {/* 必须在最后 */}
           <Route path="/" component={App} />
         </Switch>
       </Router>
