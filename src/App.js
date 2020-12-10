@@ -17,6 +17,9 @@ function App(props) {
           <li>
             <Link to="/refs">Refs</Link>
           </li>
+          <li>
+            <Link to="/fragments">Fragments</Link>
+          </li>
         </ul>
       </header>
     </div>
