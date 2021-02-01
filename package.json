@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "push": "git add . && git commit -m feat"
   },
   "dependencies": {
     "@babel/core": "7.12.3",

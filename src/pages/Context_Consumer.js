@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Context 可以让我们无须明确地传遍每一个组件，就能将值深入传递进组件树。
 // 为当前的 theme 创建一个 context（“light”为默认值）。
@@ -22,6 +22,7 @@ function Toolbar() {
   return (
     <div>
       <ThemedButton />
+      <Example />
     </div>
   );
 }
@@ -34,4 +35,18 @@ class ThemedButton extends React.Component {
       }}
     </ThemeContext.Consumer>;
   }
+}
+
+function Example() {
+  // 声明一个新的叫做 “count” 的 state 变量
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
 }
