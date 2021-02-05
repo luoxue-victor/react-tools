@@ -11,7 +11,7 @@ function Example() {
   useEffect(() => {
     // 使用浏览器的 API 更新页面标题
     document.title = `You clicked ${count} times`;
-  });
+  }, [count]); // 只有 count 改变的时候才会响应
 
   return (
     <div>
